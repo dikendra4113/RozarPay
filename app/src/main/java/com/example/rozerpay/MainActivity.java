@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
     @Override
     public void onPaymentSuccess(String s) {
         mTvPay.setText("payment successful ! payment Id is:"+s);
+        mTvPay.setVisibility(View.VISIBLE);
     }
 
     @Override
