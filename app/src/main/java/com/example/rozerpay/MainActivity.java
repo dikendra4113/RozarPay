@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
         Checkout.preload(getApplicationContext());
         Button mBtnPay = findViewById(R.id.pay_btn);
          mTvPay = findViewById(R.id.pay_tv);
+         mTvPay.setVisibility(View.GONE);
         mBtnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
         /**
          * Set your logo here
          */
-        checkout.setImage(R.drawable.logo);
+        checkout.setImage(R.drawable.app_logo);
 
         /**
          * Reference to current activity
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
         try {
             JSONObject options = new JSONObject();
 
-            options.put("name", "Merchant Name");
+            options.put("name", "Helmet Head");
             options.put("description", "Reference No. #123456");
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
 //            options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
@@ -84,5 +85,6 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
     @Override
     public void onPaymentError(int i, String s) {
         mTvPay.setText("payment failed ! payment Id is:"+s);
+        mTvPay.setVisibility(View.VISIBLE);
     }
 }
