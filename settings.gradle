@@ -1,0 +1,2 @@
+rootProject.name = "RozerPay"
+include ':app'
